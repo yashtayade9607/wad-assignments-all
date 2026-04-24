@@ -1,0 +1,36 @@
+.profile-container {
+  background: #ffffff;
+  padding: 35px;
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.profile-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.profile-container p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.profile-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-container button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}

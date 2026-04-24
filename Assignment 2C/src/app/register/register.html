@@ -1,0 +1,77 @@
+<div class="register-container">
+  <h2>Create Account</h2>
+
+  <form #f="ngForm" (ngSubmit)="register()" novalidate>
+
+    <div class="input-group">
+  <input type="text"
+         [(ngModel)]="name"
+         name="name"
+         placeholder="Full Name"
+         required
+         pattern="^[A-Za-z][A-Za-z\s]{2,}$"
+         #nameRef="ngModel">
+
+  <small class="error"
+         *ngIf="nameRef.invalid && nameRef.touched">
+    ⚠ Name must start with a letter & be 3+ characters
+  </small>
+</div>
+
+
+    <!-- Email -->
+   <div class="input-group">
+  <input type="email"
+         [(ngModel)]="email"
+         name="email"
+         placeholder="Email"
+         required
+         pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+         #emailRef="ngModel">
+
+  <small class="error"
+         *ngIf="emailRef.invalid && emailRef.touched">
+    ⚠ Enter valid email (example@mail.com)
+  </small>
+</div>
+
+
+    <!-- Password -->
+    <div class="input-group">
+      <input type="password"
+             [(ngModel)]="password"
+             name="password"
+             placeholder="Password"
+             required
+             minlength="6"
+             #passRef="ngModel">
+
+      <small class="error"
+             *ngIf="passRef.invalid && passRef.touched">
+        ⚠ Minimum 6 characters
+      </small>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="input-group">
+      <input type="password"
+             [(ngModel)]="confirmPassword"
+             name="confirmPassword"
+             placeholder="Confirm Password"
+             required>
+
+      <small class="error"
+             *ngIf="password !== confirmPassword && confirmPassword">
+        ⚠ Passwords do not match
+      </small>
+    </div>
+
+    <button type="submit"
+            [disabled]="f.invalid || password !== confirmPassword">
+      Register
+    </button>
+
+  </form>
+
+  <a routerLink="/">Already have account? Login</a>
+</div>
